@@ -7,3 +7,9 @@ declare interface drag {
         key?: string
     }
 }
+
+declare interface user{
+    id: string,
+    name: string,
+    age?: number 
+}
