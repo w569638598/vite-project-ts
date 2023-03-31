@@ -17,7 +17,7 @@ const props = defineProps<{
 <template>
     <el-menu default-active="/home" class="el-menu-vertical-demo" @open="handleOpen" @select="selectMenu" unique-opened
         @close="handleClose" router>
-        <subMenu :menu="routes" v-for="routes of props.menu"></subMenu>
+        <subMenu :menu="routes" v-for="routes of props.menu" :key="routes"></subMenu>
     </el-menu>
 </template>
 

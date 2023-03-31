@@ -1,33 +1,38 @@
 <script setup lang="ts">
-import { reactive ,ref} from 'vue'
+import { reactive, ref, onMounted, nextTick } from 'vue'
 import logo from '../assets/logo.jpeg'
-import {FormRules, FormInstance} from 'element-plus'
+import { FormRules, FormInstance } from 'element-plus'
 import { useRouter } from "vue-router";
 const router = useRouter()
+fetch("/src/mock/table.json").then(response => response.json()).then(data => { });
+let submitBtn = ref()
+
+
 let form = reactive({
   account: '',
   password: '',
 })
-const ruleFormRef  = ref<FormInstance>()
+const ruleFormRef = ref<FormInstance>()
 let rules = reactive<FormRules>({
-  account:[
+  account: [
     {
       required: true,
       message: '账号不能为空',
       trigger: 'blur'
     },
-     {
+    {
       min: 6,
       message: '账号长度最短6位',
       trigger: 'blur'
-     }
+    }
   ]
 })
-async function submitForm (formEl: FormInstance | undefined) {
+async function submitForm(formEl: FormInstance | undefined, e?: Event) {
+
   if (!formEl) return
   await formEl.validate((valid, fields) => {
     if (valid) {
-      router.push({path: '/'})
+      router.push({ path: '/' })
     } else {
     }
   })
@@ -41,7 +46,8 @@ async function resetForm(ruleFormRef) {
 
 <template>
   <img :src="logo" class="logo">
-  <el-form :model="form" label-width="120px" ref="ruleFormRef" :rules="rules">
+  <el-form :model="form" label-width="120px" ref="ruleFormRef" :rules="rules"
+    @keyup.enter="submitForm(ruleFormRef, $event)">
     <el-form-item label="账号" prop="account">
       <el-input v-model="form.account" />
     </el-form-item>
@@ -49,7 +55,7 @@ async function resetForm(ruleFormRef) {
       <el-input v-model="form.password" type="password" />
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm(ruleFormRef)">
+      <el-button ref="submitBtn" type="primary" @click="submitForm(ruleFormRef)">
         Create
       </el-button>
       <el-button @click="resetForm(ruleFormRef)">Reset</el-button>
@@ -58,8 +64,7 @@ async function resetForm(ruleFormRef) {
 </template>
 
 <style lang="less" scoped>
-.logo
-{
+.logo {
   width: 60px;
   height: 60px;
   border-radius: 60px;

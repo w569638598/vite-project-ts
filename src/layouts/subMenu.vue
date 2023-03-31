@@ -10,9 +10,12 @@ const { menu } = defineProps(['menu'])
             </el-icon>
             <span>{{ menu.meta.title }}</span>
         </template>
-        <subMenu v-for='item of menu.children' :menu="item"></subMenu>
+        <subMenu v-for='item of menu.children' :menu="item" :key="item.path"></subMenu>
     </el-sub-menu>
     <el-menu-item v-else :index="menu?.path">
+        <el-icon>
+            <component :is="menu.meta.icon" />
+        </el-icon>
         {{ menu?.meta?.title }}
     </el-menu-item>
 </template>

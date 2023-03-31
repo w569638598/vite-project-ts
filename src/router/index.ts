@@ -8,37 +8,57 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
 
-{
-  path: '/',
-  redirect: '/home',
-},{
-  path: '/home',
-  component: () => import('../layouts/index.vue'),
-  redirect: '/vxetable',
-  meta: {
-    title: '主页'
-  },
-  children: [
-    {
-      path: '/vxetable',
-      component: () => import('../view/vxetable.vue'),
-      meta: {
-        title: 'vxetable'
-      }
+  {
+    path: '/',
+    redirect: '/home',
+  }, {
+    path: '/home',
+    component: () => import('../layouts/index.vue'),
+    redirect: '/vxetable',
+    meta: {
+      title: '主页',
+      icon: 'home'
     },
-    {
-      path: '/a',
-      component: () => import('../view/a.vue'),
-      meta: {
-        title: 'a'
+    children: [
+      {
+        path: '/vxetable',
+        component: () => import('../view/vxetable.vue'),
+        meta: {
+          title: 'vxetable',
+          icon: 'tickets'
+        }
+      },
+      {
+        path: '/a',
+        redirect: '/b',
+        meta: {
+          title: 'a'
+        },
+        children: [
+          {
+            path: '/b',
+            meta: {
+              title: 'b',
+              icon: 'House'
+            },
+            component: () => import('../view/b.vue')
+          },
+          {
+            path: '/dragForm',
+            meta: {
+              title: 'dragForm',
+              icon: 'Crop'
+            },
+            component: () => import('../view/drag/index.vue')
+          }
+        ]
       }
-    }
-  ]
-},
-{
-  path: '/login',
-  component: () => import('../view/login.vue')
-},
+    ]
+  },
+  {
+    path: '/login',
+    component: () => import('../view/login.vue')
+  },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

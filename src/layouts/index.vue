@@ -47,8 +47,6 @@ watch(usefulRouter, () => {
   height: calc(100vh - 57px);
 }
 
-.leftMenu {}
-
 .content {
   position: absolute
 }

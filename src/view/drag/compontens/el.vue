@@ -9,13 +9,10 @@ interface Props {
     label: string,
     type: string,
     source?: string,
-    id?: string
+    id: string
 }
 
-const { label, type, id, source } = withDefaults(defineProps<Props>(), {
-    label: '默认组件',
-    source: 'list'
-})
+const { label, type, id, source } = defineProps<Props>()
 const dragStore = useDragStore()
 
 function dragstart(e: Event) {
