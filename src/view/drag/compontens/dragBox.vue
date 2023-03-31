@@ -1,25 +1,23 @@
 <script setup lang="ts">
 import { useDragStore } from '@/store/drag'
 import { storeToRefs } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import el from './el.vue'
 import { Delete} from '@element-plus/icons-vue'
 let store = useDragStore()
-const {dragEl,formList} = storeToRefs(store)
+const {formList} = storeToRefs(store)
 const dragBox = ref()
 function drop(e:Event) {
     store.pushFormList(store.dragEl)
-    store.setCurrentClickId(store.dragEl.id)
+    store.setCurrentClickItem(store.dragEl)
 }
-
-
 </script>
 
 <template>
     <div class="dragTargetBox" @dragover.preventDefault="(e) => { e.preventDefault() }" @drop.preventDefault="drop"
         ref="dragBox">
         <template v-for="(item, i) of formList">
-            <div class="box" :class="[item.id === store.currentClickId ? 'action' : '']">
+            <div class="box" :class="[item.id === store.currentClickItem.id ? 'action' : '']">
             <el :label="item.formItem.label" type="autocomplete" v-if="item.formItem.type == 'autocomplete'" source="dragContentBox" :id="item.id">
                 <el-autocomplete clearable class="inline-input w-50" placeholder="Please Input" />
             </el>

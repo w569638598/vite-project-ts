@@ -1,33 +1,30 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from "vue";
 import { useDragStore } from '@/store/drag'
-import { storeToRefs } from "pinia";
 import { v4 as uuidv4 } from 'uuid';
-import { ref } from "vue";
-
 interface Props {
     label: string,
     type: string,
-    source?: string,
-    id: string
+    source: string,
+    id?: string
 }
-
-const { label, type, id, source } = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+    label: '默认组件'
+})
 const dragStore = useDragStore()
-
 function dragstart(e: Event) {
     const obj = {
         id: uuidv4(),
         formItem: {
-            label,
-            type
+            label: props.label,
+            type: props.type
         }
     }
     dragStore.setDrag(obj)
 }
 function setAction() {
-    if(source && source == 'list') return;
-    dragStore.setCurrentClickId(id)
+    if (props.source == 'list') return;
+    dragStore.setCurrentClickItem(dragStore.formList.filter(e => e.id === props.id)[0])
 }
 </script>
 
