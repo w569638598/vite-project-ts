@@ -8,7 +8,8 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 import { createPinia } from 'pinia'
-
+import Editor from '@tinymce/tinymce-vue'
+console.log(Editor);
 
 const app = createApp(App)
 const pinia = createPinia()
@@ -16,6 +17,8 @@ const pinia = createPinia()
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
   }
+
+  
 /**
  * 在引入 ElementPlus 时，可以传入一个包含 size 和 zIndex 属性的全局配置对象。 
  * size 用于设置表单组件的默认尺寸
@@ -25,8 +28,10 @@ app.use(ElementPlus
     // size: 'small',
     // zIndex: 3000
 )
+// app.component('Icon',Icon)
 
 app.use(router)
+app.component('Editor', Editor)
 app.use(VXETable)
 app.use(pinia)
 app.mount('#app')

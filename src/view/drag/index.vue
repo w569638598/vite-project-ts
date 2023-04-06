@@ -2,6 +2,11 @@
 import dragBox from './compontens/dragBox.vue'
 import dragList from './compontens/dragList.vue'
 import attr from './compontens/attr.vue'
+import { onDeactivated, onActivated } from 'vue'
+onDeactivated(() => {
+})
+onActivated(() => {
+})
 </script>
 
 <template>

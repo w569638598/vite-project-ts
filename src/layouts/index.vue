@@ -14,13 +14,9 @@ onMounted(() => {
 const route = useRouter()
 const routeArr = route.options.routes
 const usefulRouter = computed(() => {
-  console.log(routeArr.filter(e => e.meta && e.meta.title == '主页')[0].children);
-  return routeArr.filter(e => e.meta && e.meta.title == '主页')[0].children
-  // return arr.filter(e => !e.redirect)
+  return routeArr.filter(e => e.meta && e.meta.title == '主页')[0].children || []
 })
 watch(usefulRouter, () => {
-  console.log(usefulRouter);
-  
 })
 </script>
 

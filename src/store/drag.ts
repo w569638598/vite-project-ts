@@ -27,6 +27,9 @@ export const useDragStore = defineStore('drag', {
         setFormList(v:drag){
             this.formList.splice(this.formList.findIndex(e => e.id == v.id), 1, v)
         },
+        delFormList(v: drag){
+            this.formList.splice(this.formList.findIndex(e => e.id == v.id), 1)
+        },
         setCurrentClickItem(v: drag){
             this.currentClickItem = v
         }

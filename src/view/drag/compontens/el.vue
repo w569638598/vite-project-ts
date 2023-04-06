@@ -23,6 +23,8 @@ function dragstart(e: Event) {
     dragStore.setDrag(obj)
 }
 function setAction() {
+    console.log(props);
+    
     if (props.source == 'list') return;
     dragStore.setCurrentClickItem(dragStore.formList.filter(e => e.id === props.id)[0])
 }
