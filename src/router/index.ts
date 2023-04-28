@@ -50,6 +50,14 @@ const routes: RouteRecordRaw[] = [
               icon: 'Crop'
             },
             component: () => import('../view/drag/index.vue')
+          },
+          {
+            path: '/echarts',
+            meta: {
+              title: 'echarts',
+              icon: 'Crop'
+            },
+            component: () => import('../view/echarts.vue')
           }
         ]
       }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Icon :icon="props.icon" :color="props.color" />
+        <Icon :horizontalFlip="props.horizontalFlip" :verticalFlip="props.verticalFlip" :rotate="props.rotate" :flip="props.flip" :width="props.width" :height="props.height" :icon="props.icon" :color="props.color" :size="props.size" :style="props.size" />
     </div>
 </template>
 <script setup lang="ts">
@@ -13,11 +13,14 @@ const props = defineProps<{
     height?: string | number,
     inline?: boolean,
     style?: object,
-    rotate?: number | string,
+    rotate?: number,
     flip?: string,
     verticalFlip?: boolean,
     horizontalFlip?: boolean,
-    onLoad?: ()=> any 
+    onLoad?: ()=> any ,
+    size?: number
 }>()
+console.log(props.size);
+
 </script>
 <style lang='less' scoped></style>

@@ -1,12 +1,21 @@
-declare interface drag {
+
+
+declare interface formItem {
     id?: string,
-    formItem: {
-        type: string,
-        label: string,
-        source?: string,
-        key?: string
+    type: string,
+    icon?: string,
+    data: {
+        defaultVal?: any,
+        key?: string,
+        placeholder?: string,
+        label?: string,
     }
 }
+
+interface hasIndexFormItem extends formItem{
+    index: number
+}
+
 
 declare interface user{
     id: string,

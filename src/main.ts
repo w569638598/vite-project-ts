@@ -4,19 +4,18 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import router from './router'
 import './style.less'
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 import { createPinia } from 'pinia'
 import Editor from '@tinymce/tinymce-vue'
-console.log(Editor);
-
+import icon from '@/components/icon.vue'
 const app = createApp(App)
 const pinia = createPinia()
 // 注册element-plus icon
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component)
-  }
+// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+//     app.component(key, component)
+//   }
 
   
 /**
@@ -28,7 +27,7 @@ app.use(ElementPlus
     // size: 'small',
     // zIndex: 3000
 )
-// app.component('Icon',Icon)
+app.component('icon', icon)
 
 app.use(router)
 app.component('Editor', Editor)
