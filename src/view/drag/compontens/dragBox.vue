@@ -106,6 +106,7 @@ onBeforeMount(() => {
 </template>
 
 <style lang="less" scoped>
+@import url('@/utils/style.less');
 .dragTargetBox {
     width: 100%;
     overflow: auto;
@@ -138,7 +139,6 @@ onBeforeMount(() => {
         top: -15px;
         display: flex;
         justify-content: space-between;
-
         &>* {
             width: 28px;
             height: 28px;
@@ -149,6 +149,9 @@ onBeforeMount(() => {
             align-items: center;
             justify-content: center;
             margin: 0 3px;
+            &:hover{
+                .boxShadow()
+            }
         }
     }
 

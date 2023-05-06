@@ -24,6 +24,6 @@ onActivated(() => {
 <style lang="less" scoped>
 .dragMain {
     display: flex;
-
+    margin-top: 20px;
 }
 </style>

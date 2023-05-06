@@ -24,5 +24,10 @@ ul{
 }
 li{
     list-style: none;
+    margin: 6px 0;
+    span{
+        margin-bottom: 6px;
+        display: inline-block;
+    }
 }
 </style>
