@@ -1,5 +1,17 @@
-<script setup>
-
+<script setup lang="ts">
+interface dropDownList {
+    icon: string,
+    text: string
+}
+const dropDownList :dropDownList[] = [
+    {
+        icon: 'bi:people-circle',
+        text: '个人中心'
+    }, {
+        icon: 'ep:setting',
+        text: '设置'
+    }
+]
 </script>
 
 <template>
@@ -16,17 +28,16 @@
         </template>
         <template #extra>
             <el-dropdown>
-                <span class="user">
-                    <el-avatar :size="32" class="mr-3"
-                        src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
-                </span>
+                <img style="cursor: pointer;" width="28"
+                    src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="">
+
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item :divided="true" :icon="setting">
-                            <span>个人中心</span>
-                        </el-dropdown-item>
-                        <el-dropdown-item :divided="true">
-                            <span>设置</span>
+                        <el-dropdown-item :divided="true" v-for="item of dropDownList">
+                            <div class="downMenu">
+                                <icon :icon="item.icon"></icon>
+                                <span>{{ item.text }}</span>
+                            </div>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
@@ -53,5 +64,13 @@
 
 .user {
     cursor: pointer;
+}
+.downMenu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &>*{
+        margin: 0 2px;
+    }
 }
 </style>

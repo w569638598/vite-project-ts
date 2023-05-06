@@ -1,7 +1,7 @@
 <template>
     <div class="echartsPage">
-        <div id="main" ref="candlestick"></div>
-        <div ref="GraphChartDeom"></div>
+        <div style="width: 46%;height: 400px;" id="main" ref="candlestick"></div>
+        <div style="  width: 46%;      height: 400px;" ref="GraphChartDeom"></div>
     </div>
 </template>
 <script setup lang="ts">
@@ -137,7 +137,7 @@ onMounted(() => {
 <style lang='less' scoped>
 .echartsPage {
     display: flex;
-
+    width: 100%;
     &>div {
         width: 46%;
         height: 400px;

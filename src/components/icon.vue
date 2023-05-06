@@ -20,7 +20,5 @@ const props = defineProps<{
     onLoad?: ()=> any ,
     size?: number
 }>()
-console.log(props.size);
-
 </script>
 <style lang='less' scoped></style>
