@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouteRecordRaw } from 'vue-router'
-import { computed, } from 'vue'
 import subMenu from './subMenu.vue'
 import {useRoute } from 'vue-router'
 const route = useRoute()
