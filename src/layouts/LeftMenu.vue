@@ -2,10 +2,12 @@
 import { RouteRecordRaw } from 'vue-router'
 import { computed, } from 'vue'
 import subMenu from './subMenu.vue'
+import {useRoute } from 'vue-router'
+const route = useRoute()
+
 function handleOpen() { }
 function handleClose() { }
 function selectMenu(a, b, c, d) {
-    // console.log(a, b, c, d);
 }
 
 const props = defineProps<{
@@ -14,7 +16,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <el-menu :default-active="'/vxetable'" class="el-menu-vertical-demo" @open="handleOpen" @select="selectMenu" unique-opened
+    <el-menu :default-active="route.path" class="el-menu-vertical-demo" @open="handleOpen" @select="selectMenu" unique-opened
         @close="handleClose" router>
         <subMenu :menu="routes" v-for="routes of props.menu"></subMenu>
     </el-menu>

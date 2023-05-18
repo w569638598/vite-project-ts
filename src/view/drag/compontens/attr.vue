@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useDragStore } from '@/store/drag'
 import { storeToRefs } from "pinia";
-import { ref, watch } from 'vue'
 const store = useDragStore()
 const { currentClickItem } = storeToRefs(store)
 store.$subscribe(() => {
