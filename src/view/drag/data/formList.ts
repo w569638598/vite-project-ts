@@ -31,18 +31,15 @@ export const listItem: formItem[] = [
             defaultVal: '',
             label: '多选框',
             key: '',
-            placeholder: ''
         }
     },
     {
         type: 'color-picker',
         icon: 'carbon:color-palette',
-
         data: {
             defaultVal: '',
             label: '取色器',
             key: '',
-            placeholder: ''
         }
     },
     {
@@ -64,40 +61,33 @@ export const listItem: formItem[] = [
             defaultVal: '',
             label: '单选框',
             key: '',
-            placeholder: ''
         }
     },
     {
         type: 'rate',
         icon: 'ic:outline-grade',
-
         data: {
             defaultVal: '',
             label: '评分',
             key: '',
-            placeholder: ''
         }
     },
     {
         type: 'slider',
         icon: 'uil:slider-h',
-
         data: {
             defaultVal: '',
             label: '滑块',
             key: '',
-            placeholder: ''
         }
     },
     {
         type: 'switch',
         icon: 'mdi:toggle-switch-off-outline',
-
         data: {
             defaultVal: '',
             label: '开关',
             key: '',
-            placeholder: ''
         }
     },
     {
@@ -125,12 +115,10 @@ export const listItem: formItem[] = [
     {
         type: 'upload',
         icon: 'ic:round-upload-file',
-
         data: {
             defaultVal: '',
             label: '文件上传',
             key: '',
-            placeholder: ''
         }
     },
     {
