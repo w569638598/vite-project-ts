@@ -9,7 +9,8 @@ export const listItem: formItem[] = [
             defaultVal: '',
             label: '输入框',
             key: 'name',
-            placeholder: '请输入'
+            placeholder: '请输入',
+            value: '',
         }
     },
     {
@@ -40,6 +41,7 @@ export const listItem: formItem[] = [
             defaultVal: '',
             label: '取色器',
             key: '',
+            value: '',
         }
     },
     {

@@ -7,18 +7,19 @@ declare interface formItem {
     data: {
         defaultVal?: any,
         key?: string,
+        value?: string,
         placeholder?: string,
         label?: string,
     }
 }
 
-interface hasIndexFormItem extends formItem{
+interface hasIndexFormItem extends formItem {
     index: number
 }
 
 
-declare interface user{
+declare interface user {
     id: string,
     name: string,
-    age?: number 
+    age?: number
 }
