@@ -30,19 +30,11 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: '/a',
-        redirect: '/b',
+        redirect: '/dragForm',
         meta: {
-          title: 'a'
+          title: '自定义表单图表'
         },
         children: [
-          {
-            path: '/b',
-            meta: {
-              title: 'b',
-              icon: 'House'
-            },
-            component: () => import('../view/b.vue')
-          },
           {
             path: '/dragForm',
             meta: {
@@ -50,6 +42,14 @@ const routes: RouteRecordRaw[] = [
               icon: 'Crop'
             },
             component: () => import('../view/drag/index.vue')
+          },
+          {
+            path: '/b',
+            meta: {
+              title: 'b',
+              icon: 'House'
+            },
+            component: () => import('../view/b.vue')
           },
           {
             path: '/echarts',
