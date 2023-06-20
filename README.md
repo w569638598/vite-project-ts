@@ -4,8 +4,7 @@
 
 ### `npm dev`
 
-#### 图标组件
-
+#### 图标库
 
 ```text
 @iconify/vue 
