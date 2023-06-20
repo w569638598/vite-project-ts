@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     open: true
   },
+  build: {
+    outDir: 'Docs'
+  },
   resolve: {
     alias: {
       "@": resolve(__dirname, 'src')
