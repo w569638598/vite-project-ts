@@ -8,7 +8,8 @@ export default defineConfig({
     open: true
   },
   build: {
-    outDir: 'docs'
+    outDir: 'docs',
+    target: 'es2015'
   },
   base: '/vite-project-ts/',
   resolve: {
