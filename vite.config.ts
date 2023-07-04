@@ -10,6 +10,7 @@ export default defineConfig({
   build: {
     outDir: 'docs'
   },
+  base: 'vite-project-ts/',
   resolve: {
     alias: {
       "@": resolve(__dirname, 'src')
